@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor Filipe - Portuguese Online</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+    body { line-height:1.6; color:#333; }
+
+    nav { background:#1E3A8A; padding:15px; position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; }
+    nav a { color:#fff; text-decoration:none; margin:0 10px; font-weight:600; }
+    nav a:hover { text-decoration:underline; }
+
+    #hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 20px; background:#f3f4f6; }
+    #hero img { width:200px; height:200px; border-radius:50%; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+    #hero h1 { margin-top:20px; font-size:2.2rem; color:#1E3A8A; }
+    #hero p { margin:10px 0 20px; font-size:1.1rem; max-width:600px; }
+    #hero .button { background:#F97316; color:#fff; padding:12px 25px; border:none; border-radius:8px; cursor:pointer; text-decoration:none; font-weight:600; }
+    #hero .button:hover { background:#ea580c; }
+
+    section { padding:60px 20px; max-width:1200px; margin:0 auto; }
+    section h2 { font-size:1.8rem; color:#1E3A8A; margin-bottom:15px; text-align:center; }
+    section p { text-align:center; margin-bottom:30px; }
+
+    iframe { max-width:100%; border-radius:8px; }
+
+    .cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card { background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.2); padding:20px; flex:1 1 250px; max-width:300px; text-align:center; }
+    .card h3 { color:#1E3A8A; margin-bottom:10px; }
+    .card p { font-size:0.95rem; }
+
+    .testimonials { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .testimonial { background:#f3f4f6; border-radius:10px; padding:20px; max-width:300px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+    .testimonial p { font-style:italic; }
+    .testimonial h4 { margin-top:10px; font-weight:600; }
+
+    .gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .gallery .item { width:250px; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2); background:#fff; text-align:center; }
+    .gallery .item img, .gallery .item iframe { width:100%; height:auto; display:block; }
+    .caption { padding:10px; font-size:0.9rem; color:#333; }
+
+    #contact a { display:inline-block; margin:10px; background:#1E3A8A; color:#fff; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:600; }
+    #contact a:hover { background:#2563eb; }
+
+    footer { background:#1E3A8A; color:#fff; padding:20px; text-align:center; font-size:0.85rem; margin-top:40px; }
+    footer a { color:#F97316; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+
+    @media(max-width:768px){ .cards, .testimonials, .gallery { flex-direction:column; align-items:center; } }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div><strong>Professor Filipe</strong></div>
+  <div>
+    <a href="#hero">Home</a>
+    <a href="#intro-video">Video</a>
+    <a href="#about">About</a>
+    <a href="#services">Classes</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#booking">Book Lesson</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <img src="media/foto_perfil.jpg" alt="Professor Filipe">
+  <h1>Professor Filipe Monteiro</h1>
+  <p>Portuguese teacher for all levels, preparing students for exams, travel, and business.</p>
+  <a href="#booking" class="button">📅 Book a Lesson</a>
+</section>
+
+<!-- Introductory Video -->
+<section id="intro-video">
+  <h2>Introductory Video</h2>
+  <p>Watch my introduction video and learn about my Portuguese teaching methodology.</p>
+  <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/r2J0BiJPR-c" 
+      title="Introductory Video" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+  </iframe>
+</section>
+
+<!-- About / Why Choose Me -->
+<section id="about">
+  <h2>Why Choose Me?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Experience</h3>
+      <p>Teaching Portuguese for all levels, including preparation for exams like DIPLE, DEPLE.</p>
+    </div>
+    <div class="card">
+      <h3>Personalized Methodology</h3>
+      <p>Lessons tailored to your goals: conversation, grammar, travel, or business.</p>
+    </div>
+    <div class="card">
+      <h3>Flexibility</h3>
+      <p>Online lessons with schedules adapted to your daily routine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services / Classes -->
+<section id="services">
+  <h2>Types of Lessons</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>General Portuguese</h3>
+      <p>Lessons for beginners, intermediate, and advanced students.</p>
+    </div>
+    <div class="card">
+      <h3>Exam Preparation</h3>
+      <p>DIPLE, DEPLE, and other Portuguese proficiency exams.</p>
+    </div>
+    <div class="card">
+      <h3>Portuguese for Travel & Business</h3>
+      <p>Learn expressions and practical communication for real-life situations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"Professor Filipe's lessons are clear and very dynamic. Highly recommended!"</p>
+      <h4>- Maria, Portuguese student</h4>
+    </div>
+    <div class="testimonial">
+      <p>"I improved my Portuguese for business in just a few weeks!"</p>
+      <h4>- João, Executive</h4>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery / Videos -->
+<section id="gallery">
+  <h2>Lesson Videos</h2>
+  <p>Watch demonstration videos of my lessons.</p>
+  <div class="gallery">
+    <div class="item">
+      <iframe width="250" height="150" 
+          src="https://www.youtube.com/embed/r2J0BiJPR-c" 
+          title="Lesson Video" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+      </iframe>
+      <p class="caption">Introductory Video</p>
+    </div>
+  </div>
+</section>
+
+<!-- Booking / Calendário -->
+<section id="booking">
+  <h2>Book a Trial Lesson</h2>
+  <p>Schedule a 30-minute lesson to get to know my method and your Portuguese level.</p>
+  <a class="button" href="https://calendly.com/filipemonteirodjob/30min" target="_blank">📅 Book Lesson</a>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Get in touch directly via WhatsApp or Email:</p>
+  <a href="https://wa.me/258853131045" target="_blank">💬 WhatsApp</a>
+  <a href="mailto:filipemonteirodjob@gmail.com">✉️ Email</a>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Professor Filipe Monteiro. All rights reserved.</p>
+  <p><a href="#">Policies & Terms of Use</a></p>
+</footer>
+
+</body>
+</html>
