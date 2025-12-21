@@ -66,6 +66,51 @@
   </style>
 </head>
 
+  <!-- Chat flutuante WhatsApp -->
+<a href="https://wa.me/258853131045" 
+   class="whatsapp-float" 
+   target="_blank"
+   title="Fale comigo no WhatsApp">
+  💬
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  background-color: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Ajuste para telemóveis */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+</style>
+
 <body>
 
 <!-- Navbar -->
