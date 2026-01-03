@@ -2,50 +2,212 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Professor Filipe | Portuguese Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor Filipe - Português Online</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: Arial, sans-serif; margin:0; background:#f5f7fb; }
-    header { background:#1e3a8a; color:white; padding:50px; text-align:center; }
-    section { max-width:900px; margin:auto; padding:40px 20px; }
-    .card { background:white; padding:25px; margin-bottom:20px; border-radius:10px; }
-    h2 { color:#1e3a8a; }
-    .price { font-size:20px; font-weight:bold; color:#15803d; }
-    footer { background:#1e3a8a; color:white; text-align:center; padding:20px; }
+    /* Reset básico */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+    body { line-height:1.6; color:#333; }
+
+    /* Navbar */
+    nav { background:#1E3A8A; padding:15px; position:sticky; top:0; z-index:1000; display:flex; justify-content:space-between; align-items:center; }
+    nav a { color:#fff; text-decoration:none; margin:0 10px; font-weight:600; }
+    nav a:hover { text-decoration:underline; }
+
+    /* Hero */
+    #hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 20px; background:#f3f4f6; }
+    #hero img { width:200px; height:200px; border-radius:50%; box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+    #hero h1 { margin-top:20px; font-size:2.2rem; color:#1E3A8A; }
+    #hero p { margin:10px 0 20px; font-size:1.1rem; max-width:600px; }
+    #hero .button { background:#F97316; color:#fff; padding:12px 25px; border:none; border-radius:8px; cursor:pointer; text-decoration:none; font-weight:600; }
+    #hero .button:hover { background:#ea580c; }
+
+    /* Seções */
+    section { padding:60px 20px; max-width:1200px; margin:0 auto; }
+    section h2 { font-size:1.8rem; color:#1E3A8A; margin-bottom:15px; text-align:center; }
+    section p { text-align:center; margin-bottom:30px; }
+
+    /* Video */
+    iframe { max-width:100%; border-radius:8px; }
+
+    /* Cards serviços */
+    .cards { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .card { background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.2); padding:20px; flex:1 1 250px; max-width:300px; text-align:center; }
+    .card h3 { color:#1E3A8A; margin-bottom:10px; }
+    .card p { font-size:0.95rem; }
+
+    /* Testemunhos */
+    .testimonials { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .testimonial { background:#f3f4f6; border-radius:10px; padding:20px; max-width:300px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+    .testimonial p { font-style:italic; }
+    .testimonial h4 { margin-top:10px; font-weight:600; }
+
+    /* Galeria */
+    .gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .gallery .item { width:250px; border-radius:10px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,0.2); background:#fff; text-align:center; }
+    .gallery .item img, .gallery .item iframe { width:100%; height:auto; display:block; }
+    .caption { padding:10px; font-size:0.9rem; color:#333; }
+
+    /* Contato */
+    #contact a { display:inline-block; margin:10px; background:#1E3A8A; color:#fff; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:600; }
+    #contact a:hover { background:#2563eb; }
+
+    /* Rodapé */
+    footer { background:#1E3A8A; color:#fff; padding:20px; text-align:center; font-size:0.85rem; margin-top:40px; }
+    footer a { color:#F97316; text-decoration:none; }
+    footer a:hover { text-decoration:underline; }
+
+    /* Chat flutuante */
+    #chat { position:fixed; bottom:20px; right:20px; background:#F97316; color:#fff; padding:15px; border-radius:50%; width:60px; height:60px; text-align:center; font-size:24px; cursor:pointer; z-index:10000; }
+    #chat-window { display:none; position:fixed; bottom:90px; right:20px; width:300px; max-width:90%; height:400px; background:#fff; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3); z-index:10000; flex-direction:column; overflow:hidden; }
+    #chat-window header { background:#1E3A8A; color:#fff; padding:10px; text-align:center; font-weight:600; }
+    #chat-window iframe { width:100%; height:calc(100% - 40px); border:none; }
+
+    /* Responsivo */
+    @media(max-width:768px){ .cards, .testimonials, .gallery { flex-direction:column; align-items:center; } }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Professor Filipe</h1>
-  <p>Portuguese Online Classes</p>
-</header>
+<!-- Navbar -->
+<nav>
+  <div><strong>Professor Filipe</strong></div>
+  <div>
+    <a href="#hero" class="lang" data-lang="pt">Home</a>
+    <a href="#hero" class="lang" data-lang="en" style="display:none;">Home</a>
 
-<section class="card">
-  <h2>🇵🇹 Sobre mim</h2>
-  <p>Sou professor de português para estrangeiros, aulas online, viagens, negócios e exames.</p>
+    <a href="#intro-video" class="lang" data-lang="pt">Vídeo</a>
+    <a href="#intro-video" class="lang" data-lang="en" style="display:none;">Video</a>
 
-  <h2>🇬🇧 About me</h2>
-  <p>I am a Portuguese teacher offering online lessons for travel, business and exams.</p>
+    <a href="#about" class="lang" data-lang="pt">Sobre</a>
+    <a href="#about" class="lang" data-lang="en" style="display:none;">About</a>
+
+    <a href="#services" class="lang" data-lang="pt">Aulas</a>
+    <a href="#services" class="lang" data-lang="en" style="display:none;">Classes</a>
+
+    <a href="#testimonials" class="lang" data-lang="pt">Testemunhos</a>
+    <a href="#testimonials" class="lang" data-lang="en" style="display:none;">Testimonials</a>
+
+    <a href="#gallery" class="lang" data-lang="pt">Galeria</a>
+    <a href="#gallery" class="lang" data-lang="en" style="display:none;">Gallery</a>
+
+    <a href="#booking" class="lang" data-lang="pt">Marcar Aula</a>
+    <a href="#booking" class="lang" data-lang="en" style="display:none;">Book Lesson</a>
+
+    <a href="#contact" class="lang" data-lang="pt">Contato</a>
+    <a href="#contact" class="lang" data-lang="en" style="display:none;">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <img src="media/filipe.jpg" alt="Professor Filipe">
+  <h1 class="lang" data-lang="pt">Professor Filipe Monteiro</h1>
+  <h1 class="lang" data-lang="en" style="display:none;">Professor Filipe Monteiro</h1>
+  <p class="lang" data-lang="pt">Professor de português para todos os níveis, preparando alunos para exames, viagens e negócios.</p>
+  <p class="lang" data-lang="en" style="display:none;">Portuguese teacher for all levels, preparing students for exams, travel, and business.</p>
+  <a href="#booking" class="button lang" data-lang="pt">📅 Marcar Aula</a>
+  <a href="#booking" class="button lang" data-lang="en" style="display:none;">📅 Book Lesson</a>
 </section>
 
-<section class="card">
-  <h2>💰 Preços | Pricing</h2>
-  <p class="price">Aula experimental: €5</p>
-  <p class="price">Aula normal: €10</p>
-  <p>Pagamento seguro via PayPal.</p>
+<!-- Vídeo Introdutório -->
+<section id="intro-video">
+  <h2 class="lang" data-lang="pt">Vídeo Introdutório</h2>
+  <h2 class="lang" data-lang="en" style="display:none;">Introductory Video</h2>
+  <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/r2J0BiJPR-c" 
+      title="Vídeo introdutório" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+  </iframe>
 </section>
 
-<section class="card">
-  <h2>📅 Marcar aula</h2>
-  <a href="https://calendly.com/filipemonteirodjob/30min" target="_blank">
-    Agendar aula
-  </a>
+<!-- Serviços / Aulas -->
+<section id="services">
+  <h2 class="lang" data-lang="pt">Tipos de Aulas</h2>
+  <h2 class="lang" data-lang="en" style="display:none;">Class Types</h2>
+  <div class="cards">
+    <div class="card">
+      <h3 class="lang" data-lang="pt">Português Geral</h3>
+      <h3 class="lang" data-lang="en" style="display:none;">General Portuguese</h3>
+      <p class="lang" data-lang="pt">Aulas para iniciantes, intermediários e avançados.</p>
+      <p class="lang" data-lang="en" style="display:none;">Classes for beginners, intermediates, and advanced students.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang" data-lang="pt">Preparação para Exames</h3>
+      <h3 class="lang" data-lang="en" style="display:none;">Exam Preparation</h3>
+      <p class="lang" data-lang="pt">DIPLE, DEPLE, CIPLE.</p>
+      <p class="lang" data-lang="en" style="display:none;">DIPLE, DEPLE, CIPLE.</p>
+    </div>
+    <div class="card">
+      <h3 class="lang" data-lang="pt">Português para Viagens e Negócios</h3>
+      <h3 class="lang" data-lang="en" style="display:none;">Portuguese for Travel & Business</h3>
+      <p class="lang" data-lang="pt">Aprenda expressões e comunicação prática para situações reais.</p>
+      <p class="lang" data-lang="en" style="display:none;">Learn practical expressions and communication for real situations.</p>
+    </div>
+  </div>
 </section>
 
+<!-- Planos e Pagamentos -->
+<section id="pricing">
+  <h2 class="lang" data-lang="pt">Planos e Preços</h2>
+  <h2 class="lang" data-lang="en" style="display:none;">Pricing Plans</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Aula Experimental</h3>
+      <p>5€ - 30 minutos</p>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=filipemonteirodjob@gmail.com&item_name=Aula%20Experimental&amount=5&currency_code=EUR" target="_blank" class="button">💳 Pagar</a>
+    </div>
+    <div class="card">
+      <h3>Aula Normal</h3>
+      <p>10€ - 60 minutos</p>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=filipemonteirodjob@gmail.com&item_name=Aula%20Normal&amount=10&currency_code=EUR" target="_blank" class="button">💳 Pagar</a>
+    </div>
+  </div>
+</section>
+
+<!-- Chat Flutuante -->
+<div id="chat" onclick="toggleChat()">💬</div>
+<div id="chat-window">
+  <header>Chat com Professor Filipe</header>
+  <iframe src="https://wa.me/258853131045"></iframe>
+</div>
+
+<!-- Contato -->
+<section id="contact">
+  <h2 class="lang" data-lang="pt">Contato</h2>
+  <h2 class="lang" data-lang="en" style="display:none;">Contact</h2>
+  <p class="lang" data-lang="pt">Entre em contato via WhatsApp ou Email:</p>
+  <p class="lang" data-lang="en" style="display:none;">Contact me via WhatsApp or Email:</p>
+  <a href="https://wa.me/258853131045" target="_blank">💬 WhatsApp</a>
+  <a href="mailto:filipemonteirodjob@gmail.com">✉️ Email</a>
+</section>
+
+<!-- Rodapé -->
 <footer>
-  <p>© 2026 Professor Filipe</p>
+  <p>&copy; 2026 Professor Filipe Monteiro. Todos os direitos reservados.</p>
+  <p><a href="#">Políticas e Termos de Uso</a></p>
 </footer>
+
+<script>
+  // Alternar idioma
+  function switchLang(lang) {
+    document.querySelectorAll('.lang').forEach(el => {
+      el.style.display = el.dataset.lang === lang ? '' : 'none';
+    });
+  }
+
+  // Chat flutuante
+  function toggleChat() {
+    const win = document.getElementById('chat-window');
+    win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+  }
+</script>
 
 </body>
 </html>
